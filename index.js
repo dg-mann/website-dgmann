@@ -1,5 +1,3 @@
-import changeThemeHandler from "./themeChangeHandler.js";
-
 const body = document.body;
 changeThemeHandler();
 body.classList.add("ocean");
@@ -49,5 +47,23 @@ function generateBoxes(rows) {
       box.classList.add("box");
       box.classList.add("box-" + rndInt);
     });
+  });
+}
+
+function changeThemeHandler() {
+  const themeButtons = document.querySelectorAll(".theme-button");
+  themeButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      changeTheme(event.target.value);
+      event.target.classList.add("checked");
+    });
+  });
+}
+
+function changeTheme(theme) {
+  document.body.classList = [];
+  document.body.classList.add(theme);
+  themeButtons.forEach((button) => {
+    button.classList.remove("checked");
   });
 }
