@@ -7,7 +7,7 @@ import ImageBoard from '@/components/ImageBoard.vue'
     <div class="stage">
       <div class="stage-content">
         <h1 class="stage-content__headline">DGMANN</h1>
-        <sub class="stage-content__sub-line"><3 by Paul Degemann</sub>
+        <sub class="stage-content__sub-line">♥ by Paul Degemann</sub>
         <p>Code & Photography</p>
       </div>
     </div>
@@ -23,8 +23,7 @@ import ImageBoard from '@/components/ImageBoard.vue'
   flex-direction: column;
   align-items: center;
   max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 150px auto;
 }
 
 .stage-content {

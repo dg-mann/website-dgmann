@@ -1,5 +1,6 @@
 @import './colors.scss';
 @import './font-faces.scss';
+@import './link.scss';
 
 body {
   background-color: $secondary-color;
@@ -23,4 +24,8 @@ p {
   @media screen and (min-width: 798px) {
     font-size: 16px;
   }
+}
+
+a {
+  @include link;
 }

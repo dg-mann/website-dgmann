@@ -1,0 +1,22 @@
+@mixin link {
+  color: $primary-color;
+  transition: color 0.3s ease;
+  text-decoration: underline dashed;
+
+  &:link {
+    color: $primary-color;
+  }
+
+  &:visited {
+    color: gray;
+  }
+
+  &:hover,
+  &:focus {
+    color: rgba($primary-color, 0.8);
+  }
+
+  &:active {
+    color: $primary-color;
+  }
+}
