@@ -3,16 +3,21 @@
     <div
       class="image-gallery__image-item"
       v-for="image in images"
-      :key="image"
+      :key="image.name"
+      @click="handleImageClick(image)"
     >
       <img :src="image.name" class="image-gallery__image" />
     </div>
   </div>
+  <ImageModal v-if="isImageModalOpen" :src="imageModalSrc" @close="handleClose" />
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import ImageModal from './ImageModal.vue'
 const images = import.meta.glob('@/assets/images/preview/*.jpg')
+const isImageModalOpen = ref(false)
+const imageModalSrc = ref('')
 
 function createImageLink(previewSource) {
   const pathArray = previewSource.split('/')
@@ -25,11 +30,12 @@ function createImageLink(previewSource) {
 }
 
 function handleImageClick(image) {
-  const imageSource = createImageLink(image.name)
-  const imgTag = document.createElement('img')
-  imgTag.src = imageSource
-  document.body.appendChild(imgTag)
-  console.log(parsedImageName)
+  imageModalSrc.value = createImageLink(image.name)
+  isImageModalOpen.value = true
+}
+
+function handleClose() {
+  isImageModalOpen.value = false
 }
 </script>
 
