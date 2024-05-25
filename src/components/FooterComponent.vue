@@ -1,7 +1,8 @@
 <template>
   <nav class="footer-nav">
     <RouterLink class="footer-nav__link" to="/">Home</RouterLink>
-    <RouterLink class="footer-nav__link" to="/about">About</RouterLink>
+    <RouterLink class="footer-nav__link" to="/imprint">Imprint</RouterLink>
+    <RouterLink class="footer-nav__link" to="/privacy">Datenschutz</RouterLink>
     <a class="footer-nav__link" href="mailto:paul@degemann.de">Contact</a>
   </nav>
 </template>

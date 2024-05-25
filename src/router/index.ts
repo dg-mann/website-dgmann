@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import StartView from '../views/StartView.vue'
-import AboutView from '../views/AboutView.vue'
+import ImprintView from '../views/ImprintView.vue'
+import PrivacyView from '../views/PrivacyView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -10,9 +12,14 @@ const router = createRouter({
       component: StartView
     },
     {
-      path: '/about',
-      name: 'about',
-      component: AboutView
+      path: '/imprint',
+      name: 'imprint',
+      component: ImprintView
+    },
+    {
+      path: '/privacy',
+      name: 'privacy',
+      component: PrivacyView
     }
   ]
 })

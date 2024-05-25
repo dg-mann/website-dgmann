@@ -9,15 +9,18 @@
       <img :src="image.name" class="image-gallery__image" />
     </div>
   </div>
-  <ImageModal v-if="isImageModalOpen" :src="imageModalSrc" @close="handleClose" />
+  <LoadingLayer v-if="isLoading" />
+  <ImageModal v-show="!isLoading && isImageModalOpen" :src="imageModalSrc" @close="handleClose" />
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 import ImageModal from './ImageModal.vue'
+import LoadingLayer from './LoadingLayer.vue'
 const images = import.meta.glob('@/assets/images/preview/*.jpg')
 const isImageModalOpen = ref(false)
 const imageModalSrc = ref('')
+const isLoading = ref(false)
 
 function createImageLink(previewSource) {
   const pathArray = previewSource.split('/')
@@ -30,12 +33,17 @@ function createImageLink(previewSource) {
 }
 
 function handleImageClick(image) {
+  isLoading.value = true
   imageModalSrc.value = createImageLink(image.name)
   isImageModalOpen.value = true
+  setTimeout(() => {
+    isLoading.value = false
+  }, 500)
 }
 
 function handleClose() {
   isImageModalOpen.value = false
+  isLoading.value = false
 }
 </script>
 

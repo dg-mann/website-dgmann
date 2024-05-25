@@ -3,16 +3,14 @@ import ImageBoard from '@/components/ImageBoard.vue'
 </script>
 
 <template>
-  <main>
-    <div class="stage">
-      <div class="stage-content">
-        <h1 class="stage-content__headline">DGMANN</h1>
-        <sub class="stage-content__sub-line">♥ by Paul Degemann</sub>
-        <p>Code & Photography</p>
-      </div>
+  <div class="stage">
+    <div class="stage-content">
+      <img src="@/assets/images/dgmannImage.svg" width="350" />
+      <sub class="stage-content__sub-line">♥ by Paul Degemann</sub>
+      <p>Code & Photography</p>
     </div>
-    <ImageBoard />
-  </main>
+  </div>
+  <ImageBoard />
 </template>
 
 <style lang="scss" scoped>
@@ -29,8 +27,9 @@ import ImageBoard from '@/components/ImageBoard.vue'
 .stage-content {
   text-align: right;
 
-  &__headline {
-    margin-bottom: -20px;
+  &__sub-line {
+    display: block;
+    width: 100%;
   }
 }
 
