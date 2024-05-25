@@ -22,7 +22,7 @@ const isImageModalOpen = ref(false)
 const imageModalSrc = ref('')
 const isLoading = ref(false)
 
-function createImageLink(previewSource) {
+function createImageLink(previewSource: any) {
   const pathArray = previewSource.split('/')
   const indexOfPreview = pathArray.indexOf('preview')
   if (indexOfPreview > -1) {
@@ -32,7 +32,7 @@ function createImageLink(previewSource) {
   return pathArray.join('/')
 }
 
-function handleImageClick(image) {
+function handleImageClick(image: any) {
   isLoading.value = true
   imageModalSrc.value = createImageLink(image.name)
   isImageModalOpen.value = true
